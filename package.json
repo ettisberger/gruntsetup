@@ -1,0 +1,10 @@
+{
+  "name": "gruntworkshop",
+  "version": "1.0.0",
+  "description": "Grunt Starting Package",
+  "main": "index.js",
+  "author": "Andy Ettisberger",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
