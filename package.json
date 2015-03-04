@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Andy Ettisberger",
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0"
   }
 }
