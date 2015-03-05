@@ -13,16 +13,40 @@ module.exports = function(grunt) {
                     {expand: true, cwd: 'app/js', src: '**/*.js', dest: 'dist/js/', filter: 'isFile'}
                 ]
             }
-        }
+        },
+
+        sass: {
+        	develop: {
+      			files: [
+      				{expand: true, cwd: 'app/static/scss', src: ['*.scss'], dest: 'generated/css', ext: '.css'}
+      			],
+      			options: {
+      				style: 'nested', // default
+      				sourcemap: 'none'
+      			}
+        	},
+    		dist: {
+      			files: [
+      				{expand: true, cwd: 'app/static/scss', src: ['*.scss'], dest: 'dist/css', ext: '.css'}
+      			],
+      			options: {
+      				style: 'compressed',
+      				sourcemap: 'none'
+      			}
+      			
+    	}
+  }
 
 
 	});
 
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 
-	grunt.registerTask('default', ['copy:develop']);
-    grunt.registerTask('dist', ['copy:dist']);
+
+	grunt.registerTask('default', ['copy:develop', 'sass:develop']);
+    grunt.registerTask('dist', ['copy:dist', 'sass:dist']);
 
 
 };
