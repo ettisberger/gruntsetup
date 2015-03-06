@@ -33,11 +33,29 @@ module.exports = function(grunt) {
       				style: 'compressed', // compressing
       				sourcemap: 'none'
       			}
-      			
+      		}
+    	},
+
+        less: {
+        	develop: {
+      			files: [
+      				{expand: true, cwd: 'app/static/less', src: ['*.less'], dest: 'generated/css', ext: '.css'}
+      			],
+      			options: {
+      				compress: false, 
+      				sourceMap: false
+      			}
+        	},
+    		dist: {
+      			files: [
+      				{expand: true, cwd: 'app/static/less', src: ['*.less'], dest: 'dist/css', ext: '.css'}
+      			],
+      			options: {
+      				compress: true, // compressing
+      				sourceMap: false
+      			}
+      		}
     	}
-  }
-
-
 	});
 
 
@@ -46,8 +64,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 
 
-	grunt.registerTask('default', ['copy:develop', 'sass:develop']);
-    grunt.registerTask('dist', ['copy:dist', 'sass:dist']);
+	grunt.registerTask('default', ['copy:develop', 'sass:develop', 'less:develop']);
+    grunt.registerTask('dist', ['copy:dist', 'sass:dist', 'less:dist']);
 
 
 };
