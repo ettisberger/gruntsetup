@@ -78,8 +78,8 @@ module.exports = function(grunt) {
                     mangle: true
                 },
                 files: {
-                    'dist/js/javascript.js': ['app/js/*.js'],
-                    'dist/js/vendor.js': ['app/js/vendor/jquery.js', 'app/js/vendor/angular.js']
+                    'dist/js/javascript.min.js': ['app/js/*.js'],
+                    'dist/js/vendor.min.js': ['app/js/vendor/jquery.js', 'app/js/vendor/angular.js']
                 }
             }
         },
