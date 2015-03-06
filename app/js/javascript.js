@@ -1,8 +1,8 @@
 // youEngineering Javascript File
 var youEngineering = function(){
-	var rockz = "Yes";
-	var rulez = "Yeah";
-	var crazy = "Yo";
+	var rockz = "rockz";
+	var rulez = "rulez";
+	var crazy = "crazy";
 
 	return rockz + rulez;
 }

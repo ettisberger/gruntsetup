@@ -96,7 +96,14 @@ module.exports = function(grunt) {
                 files: ['app/**/*.js'],
                 tasks: ['uglify:develop']
             }
-        }
+        },
+
+		jasmine : {
+			src : 'app/js/*.js',
+			options : {
+				specs : 'app/js/test/specs/*.js'
+			}
+		}
 
 
 	});
@@ -107,6 +114,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
 
 	grunt.registerTask('default', ['copy:develop', 'sass:develop', 'less:develop', 'uglify:develop']);
     grunt.registerTask('dist', ['copy:dist', 'sass:dist', 'less:dist', 'uglify:dist']);
