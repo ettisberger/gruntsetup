@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       				{expand: true, cwd: 'app/static/scss', src: ['*.scss'], dest: 'dist/css', ext: '.css'}
       			],
       			options: {
-      				style: 'compressed',
+      				style: 'compressed', // compressing
       				sourcemap: 'none'
       			}
       			
