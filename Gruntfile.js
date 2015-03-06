@@ -55,17 +55,47 @@ module.exports = function(grunt) {
       				sourceMap: false
       			}
       		}
-    	}
+    	},
+
+        uglify: {
+            develop: {
+                options: {
+                    compress: false,
+                    mangle: false,
+                    beautify: true
+                },
+                files: {
+                    'generated/js/javascript.js': ['app/js/*.js'],
+                    'generated/js/vendor.js': ['app/js/vendor/jquery.js', 'app/js/vendor/angular.js']
+                }
+            },
+            dist: {
+                options: {
+                    compress: true,
+                    compress: {
+                        warnings: false
+                    },
+                    mangle: true
+                },
+                files: {
+                    'dist/js/javascript.js': ['app/js/*.js'],
+                    'dist/js/vendor.js': ['app/js/vendor/jquery.js', 'app/js/vendor/angular.js']
+                }
+            }
+        }
+
+
 	});
 
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 
-	grunt.registerTask('default', ['copy:develop', 'sass:develop', 'less:develop']);
-    grunt.registerTask('dist', ['copy:dist', 'sass:dist', 'less:dist']);
+	grunt.registerTask('default', ['copy:develop', 'sass:develop', 'less:develop', 'uglify:develop']);
+    grunt.registerTask('dist', ['copy:dist', 'sass:dist', 'less:dist', 'uglify:dist']);
 
 
 };
