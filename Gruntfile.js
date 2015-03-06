@@ -82,6 +82,20 @@ module.exports = function(grunt) {
                     'dist/js/vendor.js': ['app/js/vendor/jquery.js', 'app/js/vendor/angular.js']
                 }
             }
+        },
+        watch: {
+            scss: {
+                files: ['app/static/scss/*.scss'],
+                tasks: ['sass:develop']
+            },
+            less: {
+                files: ['app/static/less/*.less'],
+                tasks: ['less:develop']
+            },
+            js: {
+                files: ['app/**/*.js'],
+                tasks: ['uglify:develop']
+            }
         }
 
 
@@ -92,7 +106,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['copy:develop', 'sass:develop', 'less:develop', 'uglify:develop']);
     grunt.registerTask('dist', ['copy:dist', 'sass:dist', 'less:dist', 'uglify:dist']);
